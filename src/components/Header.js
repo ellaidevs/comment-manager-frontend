@@ -4,7 +4,7 @@ import AppBar from './materialui/AppBar';
 const Header = () => {
     return (
         <div className="header">
-            <AppBar/>
+                <AppBar/>
         </div>
     );
 };

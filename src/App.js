@@ -1,7 +1,7 @@
 import './App.css';
 import Header from "./components/Header";
 import Aside from "./components/Aside";
-import Events from "./components/materialui/Events";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -10,10 +10,8 @@ function App() {
                 <Header/>
                 <Aside/>
                 <main>main</main>
-                <section>
-                    section
-                </section>
-                <footer>footer</footer>
+                <section>section</section>
+                <Footer/>
             </div>
         </div>
     );
