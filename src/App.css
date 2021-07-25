@@ -36,12 +36,12 @@ body {
 
 }
 
-#content header, aside, main, section, footer {
+#content .header, aside, main, section, footer {
     background: #3bbced; /*later set to white*/
     padding: 30px;
 }
 
-header {
+.header {
     grid-area: header;
 }
 
@@ -59,8 +59,4 @@ section {
 
 footer {
     grid-area: footer;
-}
-
-header {
-    grid-area: header;
 }
