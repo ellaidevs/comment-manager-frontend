@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 export default function AlignItemsList() {
     const [postList, setData] = useState([]);
 
@@ -34,7 +33,7 @@ export default function AlignItemsList() {
         const response = await fetch("https://jsonplaceholder.typicode.com/posts");
         const posts = await response.json();
         setData(posts);
-    },[]);
+    }, []);
 
     const posts = postList.map(list => {
         return <Post title={list.title} userId={list.userId} body={list.body} postId={list.id} key={list.id}/>

@@ -20,8 +20,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Posts = (props) => {
     const classes = useStyles();
+
+    const handlePostClick = (e) => {
+        console.log('target id:', e.target.id);
+    }
+
     return (
-        <ListItem className={classes.post} alignItems="flex-start">
+        <ListItem className={classes.post} alignItems="flex-start" onClick={handlePostClick} id={props.postId}>
             <ListItemAvatar>
                 <Avatar alt={props.userId.toString()}/>
             </ListItemAvatar>
@@ -35,7 +40,6 @@ const Posts = (props) => {
                             className={classes.inline}
                             color="textPrimary"
                         >
-                            Ali Connors
                         </Typography>
                         {props.body}
                     </React.Fragment>
