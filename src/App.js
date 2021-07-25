@@ -2,7 +2,7 @@ import './App.css';
 import Header from "./components/Header";
 import Aside from "./components/Aside";
 import Footer from "./components/Footer";
-
+import Section from "./components/Section";
 function App() {
     return (
         <div className="App">
@@ -10,7 +10,7 @@ function App() {
                 <Header/>
                 <Aside/>
                 <main>main</main>
-                <section>section</section>
+                <Section/>
                 <Footer/>
             </div>
         </div>

@@ -2,7 +2,8 @@ body {
     color: black;
     font-family: 'Nunito Semibold';
     text-align: center;
-    background-color: #f5f6f7;
+    /*background-color: #f5f6f7;*/
+    background-color: 	#e1e1e1;
 }
 
 /*Defining Grid Areas*/
@@ -18,7 +19,7 @@ main {
     grid-area: main;
 }
 
-section {
+.section {
     grid-area: section;
     display: none;
 }
@@ -64,14 +65,14 @@ footer {
 /*desktop view*/
 @media screen and (min-width: 760px) {
 
-    section{
+    .section{
         display: inherit;
     }
 
     #content {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: minmax(150px, auto);
+        grid-auto-rows: minmax(50px, auto);
         grid-gap: 10px;
         margin: 0 auto;
         grid-template-areas:
@@ -94,8 +95,9 @@ footer {
 }
 
 /*todo: remove ater finish*/
-#content .header, .aside, main, section, footer {
-    background: #3bbced; /*later set to white*/
+#content .header, .aside, main, .section, footer {
+    /*background: #3bbced; !*later set to white*!*/
+    /*background: #476072;*/
     padding: 30px;
 }
 

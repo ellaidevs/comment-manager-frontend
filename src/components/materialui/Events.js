@@ -28,6 +28,7 @@ export default function InsetDividers() {
 
     return (
         <Card variant={"outlined"}>
+            <h3>Events</h3>
             <List className={classes.root}>
                 <ListItem>
                     <ListItemAvatar>
