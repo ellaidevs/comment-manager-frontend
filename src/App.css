@@ -2,8 +2,8 @@ body {
     color: black;
     font-family: 'Nunito Semibold';
     text-align: center;
-    /*background-color: #f5f6f7;*/
     background-color: #e1e1e1;
+    overflow: hidden;
 }
 
 /*Defining Grid Areas*/
@@ -17,6 +17,7 @@ body {
 
 .main {
     grid-area: main;
+    overflow: hidden;
 }
 
 .section {
@@ -33,7 +34,6 @@ footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(50px, auto);
-    /*previously was minmax150, auto*/
     grid-gap: 5px;
     margin: 0 auto;
     grid-template-areas:
@@ -53,7 +53,6 @@ footer {
 }
 
 .nested-footer p {
-    /*border: 1px solid #fff;*/
     padding: 0px;
     margin: 0px;
 }
@@ -61,6 +60,12 @@ footer {
 .nested-footer p a {
     color: inherit;
     text-decoration: none;
+}
+
+/*feeds scrolling*/
+.post-list{
+    overflow-y: scroll;
+    max-height: 350px;
 }
 
 /*desktop view*/
@@ -91,6 +96,10 @@ footer {
         grid-gap: 10px;
         grid-column: span;
     }
+
+    .post-list{
+        max-height: 650px;
+    }
 }
 
 /*smallest screen view*/
@@ -120,15 +129,20 @@ footer {
     "main main main main"
     "main main main main";
     }
+
+    .post-list{
+        max-height: 700px;
+    }
 }
 
 
-/*todo: remove ater finish*/
-#content .header, .aside, .main, .section, footer {
-    /*background: #476072;*/
-    padding: 30px;
-}
+/*!*todo: remove ater finish*!*/
+/*#content .header, .aside, .main, .section, footer {*/
+/*    !*background: #476072;*!*/
+/*    !*padding: 30px;*!*/
+/*}*/
 
-h3{
+h3 {
     color: #fff;
 }
+
