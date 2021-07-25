@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     card: {
-        backgroundColor: "#3c54b4"
+        backgroundColor: "#3c54b4",
+        height: "600px"
     },
 }));
 
