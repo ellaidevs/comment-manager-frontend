@@ -9,12 +9,14 @@ import {makeStyles} from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     nestedFooter: {
         width: '100%',
-        maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
     },
     list: {
         textAlign: "center",
-    }
+    },
+    card: {
+        backgroundColor: "#3c54b4"
+    },
 }));
 
 const Footer = () => {
@@ -22,7 +24,7 @@ const Footer = () => {
 
     return (
         <footer>
-            <Card variant={"outlined"}>
+            <Card  className={classes.card} variant={"outlined"}>
                 <h3>About us</h3>
                 <List className={classes.nestedFooter}>
                     <ListItem>
