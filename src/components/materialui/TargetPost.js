@@ -5,7 +5,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from '@material-ui/core/styles';
 import React, {useEffect, useState} from "react";
-import {act} from "@testing-library/react";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const useStyles = makeStyles((theme) => ({
     inline: {
@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: "#ececec",
         },
         height: "auto",
+    },
+    arrow: {
+        display: 'flex',
+        color: "white"
     }
 }));
 
@@ -31,28 +35,58 @@ const TargetPost = (props) => {
         setActivePost(posts);
     }, []);
 
-    console.log('active post ', activePost);
     return (
-        <ListItem className={classes.post} alignItems="flex-start">
-            <ListItemAvatar>
-                <Avatar alt={activePost.userId+''}/>
-            </ListItemAvatar>
-            <ListItemText
-                primary={activePost.title}
-                secondary={
-                    <React.Fragment>
-                        <Typography
-                            component="span"
-                            variant="body2"
-                            className={classes.inline}
-                            color="textPrimary"
-                        >
-                        </Typography>
-                        {activePost.body}
-                    </React.Fragment>
-                }
-            />
-        </ListItem>
+        <div>
+            <div className="feed-grid">
+                <div className="arrow-back"><ArrowBackIcon className={classes.arrow}/></div>
+                <h3 className="feed-text">Feed</h3>
+            </div>
+            <div className="single-post-container">
+                <ListItem className={classes.post} alignItems="flex-start">
+
+                    <ListItemAvatar>
+                        <Avatar alt={activePost.userId + ''}/>
+                    </ListItemAvatar>
+                    <ListItemText
+                        primary={activePost.title}
+                        secondary={
+                            <React.Fragment>
+                                <Typography
+                                    component="span"
+                                    variant="body2"
+                                    className={classes.inline}
+                                    color="textPrimary"
+                                >
+                                </Typography>
+                                {activePost.body}
+                            </React.Fragment>
+                        }
+                    />
+                </ListItem>
+                <h4>Comments</h4>
+                <ListItem className={classes.post} alignItems="flex-start">
+
+                    <ListItemAvatar>
+                        <Avatar alt={activePost.userId + ''}/>
+                    </ListItemAvatar>
+                    <ListItemText
+                        primary={activePost.title}
+                        secondary={
+                            <React.Fragment>
+                                <Typography
+                                    component="span"
+                                    variant="body2"
+                                    className={classes.inline}
+                                    color="textPrimary"
+                                >
+                                </Typography>
+                                {activePost.body}
+                            </React.Fragment>
+                        }
+                    />
+                </ListItem>
+            </div>
+        </div>
     );
 };
 

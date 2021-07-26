@@ -4,8 +4,6 @@ import Card from '@material-ui/core/Card';
 import Post from './Posts';
 import TargetPost from "./TargetPost";
 
-import samplefeed from './samplefeeddata';
-
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
@@ -56,10 +54,7 @@ export default function AlignItemsList() {
         </div>
     </div>;
 
-    const displayTargetPost = <div>
-        <h3>Feed</h3>
-        <TargetPost postId={activePostId}/>
-    </div>;
+    const displayTargetPost = <TargetPost postId={activePostId}/>
 
     const classes = useStyles();
     return (
