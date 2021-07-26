@@ -8,6 +8,8 @@ import React, {useEffect, useState} from "react";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import PopUpState from './PopUpState';
 
+const _ = require('lodash');
+
 const useStyles = makeStyles((theme) => ({
     inline: {
         display: 'inline',
@@ -42,27 +44,33 @@ const TargetPost = (props) => {
     useEffect(async () => {
         const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${props.postId}`);
         const comments = await response.json();
-        console.log(comments);
+        console.log('comments', comments);
         setComments(comments);
     }, []);
 
     const handleFilterBy = (value) => {
+        console.log('check value', value)
+        let commentList;
         switch (value) {
             case 'name':
                 setFilterBy('name');
+                commentList = _.orderBy(comments, ['name'], ['asc']);
+                console.log('name executing');
                 break;
             case 'email':
                 setFilterBy('email');
+                commentList = _.orderBy(comments, ['email'], ['asc']);
                 break;
             case 'body':
                 setFilterBy('body');
+                commentList = _.orderBy(comments, ['body'], ['asc']);
                 break;
             default:
-                setFilterBy('name');
+                commentList = comments;
         }
+        setComments(commentList);
     }
 
-    console.log('filterBy value',filterBy)
     const displayComments = comments.map((comment) => {
         return <ListItem className={classes.post} alignItems="flex-start" key={comment.id}>
             <ListItemAvatar>
@@ -124,7 +132,9 @@ const TargetPost = (props) => {
                         <PopUpState filterByValue={filterBy} handleFilterBy={handleFilterBy}/>
                     </div>
                 </div>
-                {displayComments}
+                <div className="displayComment">
+                    {displayComments}
+                </div>
             </div>
         </div>
     );

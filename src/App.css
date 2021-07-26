@@ -78,6 +78,11 @@ footer {
     max-height: 450px;
 }
 
+.displayComment{
+    overflow-y: scroll;
+    max-height: 450px;
+}
+
 /*desktop view*/
 @media screen and (min-width: 769px) {
 
