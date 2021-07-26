@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 const TargetPost = (props) => {
     const [activePost, setActivePost] = useState([]);
+    const [comments, setComments] = useState([]);
 
     const classes = useStyles();
 
@@ -35,10 +36,41 @@ const TargetPost = (props) => {
         setActivePost(posts);
     }, []);
 
+
+    useEffect(async () => {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${props.postId}`);
+        const comments = await response.json();
+        setComments(comments);
+    }, []);
+
+    const displayComments = comments.map((comment) => {
+        return <ListItem className={classes.post} alignItems="flex-start" key={comment.id}>
+            <ListItemAvatar>
+                <Avatar alt={activePost.userId + ''}/>
+            </ListItemAvatar>
+            <ListItemText
+                primary={comment.name}
+                secondary={
+                    <React.Fragment>
+                        <Typography
+                            component="span"
+                            variant="body2"
+                            className={classes.inline}
+                            color="textPrimary"
+                        >
+                            {comment.email} -
+                        </Typography>
+                        {comment.body}
+                    </React.Fragment>
+                }
+            />
+        </ListItem>
+    })
     return (
         <div>
             <div className="feed-grid">
-                <div className="arrow-back" onClick={()=>props.backBtn(true)}><ArrowBackIcon className={classes.arrow}/></div>
+                <div className="arrow-back" onClick={() => props.backBtn(true)}><ArrowBackIcon
+                    className={classes.arrow}/></div>
                 <h3 className="feed-text">Feed</h3>
             </div>
             <div className="single-post-container">
@@ -64,27 +96,7 @@ const TargetPost = (props) => {
                     />
                 </ListItem>
                 <h4>Comments</h4>
-                <ListItem className={classes.post} alignItems="flex-start">
-
-                    <ListItemAvatar>
-                        <Avatar alt={activePost.userId + ''}/>
-                    </ListItemAvatar>
-                    <ListItemText
-                        primary={activePost.title}
-                        secondary={
-                            <React.Fragment>
-                                <Typography
-                                    component="span"
-                                    variant="body2"
-                                    className={classes.inline}
-                                    color="textPrimary"
-                                >
-                                </Typography>
-                                {activePost.body}
-                            </React.Fragment>
-                        }
-                    />
-                </ListItem>
+                <div className="commentList">{displayComments}</div>
             </div>
         </div>
     );

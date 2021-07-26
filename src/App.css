@@ -71,6 +71,11 @@ footer {
     max-height: 350px;
 }
 
+.commentList{
+    overflow-y: scroll;
+    max-height: 450px;
+}
+
 /*desktop view*/
 @media screen and (min-width: 769px) {
 
