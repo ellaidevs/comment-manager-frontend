@@ -3,9 +3,10 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
-import {makeStyles} from '@material-ui/core/styles';
+import {alpha, makeStyles} from '@material-ui/core/styles';
 import React, {useEffect, useState} from "react";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import PopUpState from './PopUpState';
 
 const useStyles = makeStyles((theme) => ({
     inline: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const TargetPost = (props) => {
     const [activePost, setActivePost] = useState([]);
     const [comments, setComments] = useState([]);
+    const [filterBy, setFilterBy] = useState('name');
 
     const classes = useStyles();
 
@@ -40,9 +42,27 @@ const TargetPost = (props) => {
     useEffect(async () => {
         const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${props.postId}`);
         const comments = await response.json();
+        console.log(comments);
         setComments(comments);
     }, []);
 
+    const handleFilterBy = (value) => {
+        switch (value) {
+            case 'name':
+                setFilterBy('name');
+                break;
+            case 'email':
+                setFilterBy('email');
+                break;
+            case 'body':
+                setFilterBy('body');
+                break;
+            default:
+                setFilterBy('name');
+        }
+    }
+
+    console.log('filterBy value',filterBy)
     const displayComments = comments.map((comment) => {
         return <ListItem className={classes.post} alignItems="flex-start" key={comment.id}>
             <ListItemAvatar>
@@ -95,8 +115,16 @@ const TargetPost = (props) => {
                         }
                     />
                 </ListItem>
-                <h4>Comments</h4>
-                <div className="commentList">{displayComments}</div>
+
+                <div className="commentList">
+                    <div className="comment-text">
+                        <h4>Comments</h4>
+                    </div>
+                    <div className="popupstate">
+                        <PopUpState filterByValue={filterBy} handleFilterBy={handleFilterBy}/>
+                    </div>
+                </div>
+                {displayComments}
             </div>
         </div>
     );

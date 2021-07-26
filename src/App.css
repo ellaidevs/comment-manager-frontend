@@ -5,10 +5,12 @@ body {
     background-color: #e1e1e1;
     overflow: hidden;
 }
+
 .feed {
     text-align: center;
     float: right;
 }
+
 /*Defining Grid Areas*/
 .header {
     grid-area: header;
@@ -71,7 +73,7 @@ footer {
     max-height: 350px;
 }
 
-.commentList{
+.commentList {
     overflow-y: scroll;
     max-height: 450px;
 }
@@ -159,25 +161,44 @@ h4 {
     color: #fff;
 }
 
-.feed-grid{
+.feed-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     /*grid-template-rows: repeat(1,2fr);*/
-    grid-auto-rows: minmax(30px,auto);
+    grid-auto-rows: minmax(30px, auto);
     grid-gap: 2px;
     grid-template-areas: "arrowBack feedText .";
 }
 
-.feed-grid > *{
+.feed-grid > * {
     padding: 20px;
     /*background: aqua;*/
 }
 
-.feed-text{
+.feed-text {
     grid-area: feedText;
     padding: 0;
 }
 
-.arrow-back{
+.arrow-back {
     grid-area: arrowBack;
+}
+
+
+.commentList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /*grid-template-rows: repeat(1,2fr);*/
+    grid-auto-rows: minmax(30px, auto);
+    grid-gap: 2px;
+    grid-template-areas: ". commentText popUpState";
+    padding: 10px;
+}
+
+.comment-text {
+    grid-area: commentText;
+}
+
+.popupstate{
+    grid-area: popUpState;
 }
