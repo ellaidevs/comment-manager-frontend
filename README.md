@@ -73,7 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 View Posts Desktop View
 ![View Posts Desktop View](https://user-images.githubusercontent.com/81471385/126939369-d110e3df-6112-4633-9578-699830ee7156.png)
 
+
 View Posts Mobile View
+
 ![View Posts Mobile View](https://user-images.githubusercontent.com/81471385/126939526-749e8d8f-798c-4fd9-b023-7795648efc91.png)
 
 
