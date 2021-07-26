@@ -34,7 +34,7 @@ footer {
     grid-area: footer;
 }
 
-/*mobile first view*/
+/*mobile view*/
 #content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -49,7 +49,6 @@ footer {
     "main main main main";
 }
 
-/*Footer*/
 .nested-footer {
     display: grid;
     grid-gap: 10px;
@@ -104,7 +103,6 @@ footer {
     "footer main main section";
     }
 
-    /*footer*/
     .nested-footer {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -150,13 +148,6 @@ footer {
     }
 }
 
-
-/*!*todo: remove ater finish*!*/
-/*#content .header, .aside, .main, .section, footer {*/
-/*    !*background: #476072;*!*/
-/*    !*padding: 30px;*!*/
-/*}*/
-
 h3 {
     color: #fff;
 }
@@ -166,10 +157,13 @@ h4 {
     color: #fff;
 }
 
+h3, h4{
+    font-family: 'Roboto', sans-serif;
+}
+
 .feed-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /*grid-template-rows: repeat(1,2fr);*/
     grid-auto-rows: minmax(30px, auto);
     grid-gap: 2px;
     grid-template-areas: "arrowBack feedText .";
@@ -177,7 +171,6 @@ h4 {
 
 .feed-grid > * {
     padding: 20px;
-    /*background: aqua;*/
 }
 
 .feed-text {
@@ -189,11 +182,9 @@ h4 {
     grid-area: arrowBack;
 }
 
-
 .commentList {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /*grid-template-rows: repeat(1,2fr);*/
     grid-auto-rows: minmax(30px, auto);
     grid-gap: 2px;
     grid-template-areas: ". commentText popUpState";

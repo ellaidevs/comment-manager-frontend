@@ -15,7 +15,6 @@ import Card from '@material-ui/core/Card';
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
-        // height:"400px",
         backgroundColor: theme.palette.background.paper,
     },
     iconBaseColor: {
@@ -23,8 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         backgroundColor: "#3c54b4",
-        // height:"200px",
-        // padding:"0px"
     },
 })) ;
 

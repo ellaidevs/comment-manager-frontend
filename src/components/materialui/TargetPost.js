@@ -7,7 +7,6 @@ import {alpha, makeStyles} from '@material-ui/core/styles';
 import React, {useEffect, useState} from "react";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import PopUpState from './PopUpState';
-
 const _ = require('lodash');
 
 const useStyles = makeStyles((theme) => ({
@@ -44,18 +43,15 @@ const TargetPost = (props) => {
     useEffect(async () => {
         const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${props.postId}`);
         const comments = await response.json();
-        console.log('comments', comments);
         setComments(comments);
     }, []);
 
     const handleFilterBy = (value) => {
-        console.log('check value', value)
         let commentList;
         switch (value) {
             case 'name':
                 setFilterBy('name');
                 commentList = _.orderBy(comments, ['name'], ['asc']);
-                console.log('name executing');
                 break;
             case 'email':
                 setFilterBy('email');

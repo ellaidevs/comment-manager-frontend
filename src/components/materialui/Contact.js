@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
     secondary: {
         color: "inherit",
-        // color
     },
     contactPicture: {
         display: 'flex',

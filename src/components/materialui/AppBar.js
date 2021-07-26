@@ -57,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
         width: '100%',
@@ -173,8 +172,8 @@ export default function PrimarySearchAppBar() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        WhateverApp
+                    <Typography className={classes.title}  noWrap>
+                        <h4>MindWorks</h4>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
