@@ -4,7 +4,8 @@ import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from '@material-ui/core/styles';
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {act} from "@testing-library/react";
 
 const useStyles = makeStyles((theme) => ({
     inline: {
@@ -14,20 +15,30 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#fff",
         '&:hover': {
             backgroundColor: "#ececec",
-        }
+        },
+        height: "auto",
     }
 }));
 
-const Posts = (props) => {
+const TargetPost = (props) => {
+    const [activePost, setActivePost] = useState([]);
+
     const classes = useStyles();
 
+    useEffect(async () => {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${props.postId}`);
+        const posts = await response.json();
+        setActivePost(posts);
+    }, []);
+
+    console.log('active post ', activePost);
     return (
-        <ListItem className={classes.post} alignItems="flex-start" onClick={()=>props.activePost(props.postId)}>
+        <ListItem className={classes.post} alignItems="flex-start">
             <ListItemAvatar>
-                <Avatar alt={props.userId.toString()}/>
+                <Avatar alt={activePost.userId+''}/>
             </ListItemAvatar>
             <ListItemText
-                primary={props.title}
+                primary={activePost.title}
                 secondary={
                     <React.Fragment>
                         <Typography
@@ -37,7 +48,7 @@ const Posts = (props) => {
                             color="textPrimary"
                         >
                         </Typography>
-                        {props.body}
+                        {activePost.body}
                     </React.Fragment>
                 }
             />
@@ -45,4 +56,4 @@ const Posts = (props) => {
     );
 };
 
-export default Posts;
+export default TargetPost;
