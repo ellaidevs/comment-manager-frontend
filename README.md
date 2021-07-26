@@ -73,8 +73,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Below are the pictures used from https://unsplash.com/
 
 Photo by Michael Dam on Unsplash Photo by Alex Suprun on Unsplash
+
 Photo by Roland Cousins on Unsplash
+
 Photo by Ben Parker on Unsplash
+
 Photo by Jurica Koletić on Unsplash
+
 Photo by Ali Morshedlou on Unsplash
+
 Photo by Andre Hunter on Unsplash 
