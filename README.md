@@ -76,6 +76,7 @@ View Posts Desktop View
 View Posts Mobile View
 ![View Posts Mobile View](https://user-images.githubusercontent.com/81471385/126939526-749e8d8f-798c-4fd9-b023-7795648efc91.png)
 
+
 View Comments 
 ![View Comments ](https://user-images.githubusercontent.com/81471385/126939488-61772491-0d07-4df5-b296-7c992c7d3753.png)
 
