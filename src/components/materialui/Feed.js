@@ -42,6 +42,12 @@ export default function AlignItemsList() {
         }
     }
 
+    const handleBackBtn = (value) => {
+        if (value) {
+            setViewPost(!viewPost);
+        }
+    }
+
     const posts = postList.map(list => {
         return <Post title={list.title} userId={list.userId} body={list.body} postId={list.id} key={list.id}
                      activePost={handlePostActive}/>
@@ -54,7 +60,7 @@ export default function AlignItemsList() {
         </div>
     </div>;
 
-    const displayTargetPost = <TargetPost postId={activePostId}/>
+    const displayTargetPost = <TargetPost postId={activePostId} backBtn={handleBackBtn}/>
 
     const classes = useStyles();
     return (

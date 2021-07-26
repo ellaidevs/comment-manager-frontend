@@ -38,7 +38,7 @@ const TargetPost = (props) => {
     return (
         <div>
             <div className="feed-grid">
-                <div className="arrow-back"><ArrowBackIcon className={classes.arrow}/></div>
+                <div className="arrow-back" onClick={()=>props.backBtn(true)}><ArrowBackIcon className={classes.arrow}/></div>
                 <h3 className="feed-text">Feed</h3>
             </div>
             <div className="single-post-container">
