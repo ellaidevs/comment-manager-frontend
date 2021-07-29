@@ -173,7 +173,7 @@ export default function PrimarySearchAppBar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography className={classes.title}  noWrap>
-                        <h4>MindWorks</h4>
+                        <h4>WeShare</h4>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
